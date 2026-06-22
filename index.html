@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripPilot — Travel Planner That Actually Plans</title>
+  <meta name="description" content="TripPilot builds realistic day-by-day travel itineraries with timing, budget, restaurants, booking checklist, and backup plans." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="TripPilot home">
+        <span class="brand-mark">✈</span>
+        <span class="brand-text">TripPilot</span>
+      </a>
+      <div class="nav-links">
+        <a href="#planner">Plan</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#saved">Saved Trips</a>
+      </div>
+      <a class="nav-cta" href="#planner">Start free</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Not a travel list. A real plan.</p>
+        <h1>Your trip, planned hour by hour.</h1>
+        <p class="hero-subtitle">TripPilot turns dates, budget, interests, and pace into a realistic itinerary with daily timing, food breaks, budget estimates, booking priorities, and backup plans.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#planner">Plan my trip</a>
+          <a class="button secondary" href="#demo">Preview itinerary</a>
+        </div>
+        <div class="trust-row" aria-label="Planner highlights">
+          <span>Timed itinerary</span>
+          <span>Budget-aware</span>
+          <span>Rain backups</span>
+        </div>
+      </div>
+
+      <aside class="hero-showcase" id="demo" aria-label="Sample travel plan preview">
+        <div class="showcase-topbar">
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <strong>Live trip preview</strong>
+        </div>
+        <div class="destination-card">
+          <div>
+            <p class="card-kicker">3-day sample</p>
+            <h2>San Juan escape</h2>
+            <p>Balanced pace · Couple · $1,800 budget</p>
+          </div>
+          <span class="weather-chip">82°</span>
+        </div>
+        <div class="route-map" aria-hidden="true">
+          <span class="map-pin pin-one"></span>
+          <span class="map-pin pin-two"></span>
+          <span class="map-pin pin-three"></span>
+          <span class="map-line line-one"></span>
+          <span class="map-line line-two"></span>
+        </div>
+        <div class="timeline-preview">
+          <div><strong>9:00 AM</strong><span>Old San Juan walk</span></div>
+          <div><strong>12:30 PM</strong><span>Local lunch stop</span></div>
+          <div><strong>2:30 PM</strong><span>Beach or fort visit</span></div>
+          <div><strong>7:00 PM</strong><span>Dinner + easy night</span></div>
+        </div>
+        <div class="showcase-footer">
+          <span>Estimated day cost</span>
+          <strong>$236</strong>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell proof-strip" aria-label="Product promise">
+      <div>
+        <strong>0</strong>
+        <span>random filler days</span>
+      </div>
+      <div>
+        <strong>20–35 min</strong>
+        <span>travel buffers</span>
+      </div>
+      <div>
+        <strong>1 click</strong>
+        <span>copy or PDF</span>
+      </div>
+    </section>
+
+    <section class="shell section-grid" id="features">
+      <article class="feature-card">
+        <span class="feature-icon">🗓️</span>
+        <h3>Plans by time</h3>
+        <p>No more vague lists. Each day is organized with start times, meal breaks, downtime, and realistic travel buffers.</p>
+      </article>
+      <article class="feature-card featured">
+        <span class="feature-icon">💸</span>
+        <h3>Built around your budget</h3>
+        <p>See lodging, food, activities, transportation, cushion, and total estimated trip cost before you commit.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon">☔</span>
+        <h3>Backup options</h3>
+        <p>Every trip plan includes rainy-day ideas, low-energy swaps, and what to book first.</p>
+      </article>
+    </section>
+
+    <section class="planner-section" id="planner">
+      <div class="shell planner-layout">
+        <form class="planner-form" id="tripForm">
+          <div class="section-heading left">
+            <p class="eyebrow">Trip Builder</p>
+            <h2>Tell us the trip. We’ll build the plan.</h2>
+            <p>Start with the basics. The first version runs free in your browser; the AI backend can be added later.</p>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Destination
+              <input type="text" id="destination" placeholder="Puerto Rico, Miami, Baton Rouge..." required />
+            </label>
+            <label>
+              Traveling from
+              <input type="text" id="origin" placeholder="Dallas, TX" />
+            </label>
+            <label>
+              Start date
+              <input type="date" id="startDate" required />
+            </label>
+            <label>
+              End date
+              <input type="date" id="endDate" required />
+            </label>
+            <label>
+              Travelers
+              <input type="number" id="travelers" min="1" value="2" required />
+            </label>
+            <label>
+              Total budget
+              <input type="number" id="budget" min="0" placeholder="1500" required />
+            </label>
+            <label>
+              Travel pace
+              <select id="pace">
+                <option value="relaxed">Relaxed</option>
+                <option value="balanced" selected>Balanced</option>
+                <option value="packed">Packed</option>
+              </select>
+            </label>
+            <label>
+              Transportation
+              <select id="transport">
+                <option value="walking/uber">Walking + Uber</option>
+                <option value="rental car">Rental car</option>
+                <option value="public transit">Public transit</option>
+                <option value="rv">RV / road trip</option>
+              </select>
+            </label>
+            <label>
+              Lodging style
+              <select id="lodging">
+                <option value="budget">Budget</option>
+                <option value="moderate" selected>Moderate</option>
+                <option value="comfort">Comfort</option>
+                <option value="luxury">Luxury</option>
+              </select>
+            </label>
+            <label>
+              Trip vibe
+              <select id="vibe">
+                <option value="couple">Couple</option>
+                <option value="family">Family</option>
+                <option value="solo">Solo</option>
+                <option value="friends">Friends</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="interest-box">
+            <legend>Interests</legend>
+            <label><input type="checkbox" name="interest" value="food" checked /> Food</label>
+            <label><input type="checkbox" name="interest" value="beaches" /> Beaches</label>
+            <label><input type="checkbox" name="interest" value="history" /> History</label>
+            <label><input type="checkbox" name="interest" value="adventure" /> Adventure</label>
+            <label><input type="checkbox" name="interest" value="nightlife" /> Nightlife</label>
+            <label><input type="checkbox" name="interest" value="nature" /> Nature</label>
+            <label><input type="checkbox" name="interest" value="shopping" /> Shopping</label>
+            <label><input type="checkbox" name="interest" value="family" /> Kid-friendly</label>
+          </fieldset>
+
+          <label>
+            Must-do activities
+            <textarea id="mustDo" rows="3" placeholder="Example: snorkeling, ziplining, forts, vegan restaurants..."></textarea>
+          </label>
+          <label>
+            Restrictions or preferences
+            <textarea id="restrictions" rows="3" placeholder="Example: no seafood, low walking, no alcohol, wheelchair friendly..."></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit">Generate trip plan</button>
+            <button class="button ghost" type="button" id="loadExample">Use example</button>
+          </div>
+        </form>
+
+        <aside class="tips-panel">
+          <p class="eyebrow">Realism engine</p>
+          <h3>What the planner checks</h3>
+          <ul>
+            <li><span></span>Enough time between activities</li>
+            <li><span></span>Meal breaks and downtime</li>
+            <li><span></span>Budget pressure</li>
+            <li><span></span>Arrival and departure day pacing</li>
+            <li><span></span>Rainy-day and low-energy alternatives</li>
+            <li><span></span>Booking priority</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="results-section shell" id="results" hidden>
+      <div class="results-toolbar">
+        <div>
+          <p class="eyebrow">Generated Plan</p>
+          <h2 id="resultTitle">Your Trip Plan</h2>
+        </div>
+        <div class="toolbar-actions">
+          <button class="button secondary" id="copyPlan" type="button">Copy plan</button>
+          <button class="button secondary" id="downloadPlan" type="button">Download text</button>
+          <button class="button primary" id="printPlan" type="button">Print / Save PDF</button>
+        </div>
+      </div>
+      <div id="planOutput" class="plan-output"></div>
+    </section>
+
+    <section class="saved-section shell" id="saved">
+      <div class="section-heading left">
+        <p class="eyebrow">Saved Trips</p>
+        <h2>Your saved plans</h2>
+        <p>Plans are saved in this browser for now. A later version can add user accounts and cloud sync.</p>
+      </div>
+      <div class="saved-list" id="savedList"></div>
+    </section>
+
+    <section class="pricing-section shell" id="pricing">
+      <div class="section-heading">
+        <p class="eyebrow">Future monetization</p>
+        <h2>Simple pricing model</h2>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <h3>Free</h3>
+          <p class="price">$0</p>
+          <p>Basic itinerary, budget estimate, and booking checklist.</p>
+        </article>
+        <article class="price-card highlighted">
+          <span class="popular-pill">Best starter offer</span>
+          <h3>Full Plan PDF</h3>
+          <p class="price">$5</p>
+          <p>Detailed itinerary, custom route notes, packing list, and printable trip plan.</p>
+        </article>
+        <article class="price-card">
+          <h3>Unlimited</h3>
+          <p class="price">$9/mo</p>
+          <p>Save unlimited trips, regenerate plans, compare destinations, and access premium templates.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <p>TripPilot — travel planner that actually plans.</p>
+      <a href="#planner">Plan a trip</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
